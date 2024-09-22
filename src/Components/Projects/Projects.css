@@ -1,0 +1,17 @@
+.projects-section {
+  background: rgb(238, 174, 202);
+  background: linear-gradient(
+    90deg,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(79, 154, 242, 1) 100%
+  );
+}
+.card-img-top {
+  filter: grayscale(100%);
+  transition: ease-in-out 2s linear;
+}
+.card-img-top:hover {
+  filter: grayscale(0%);
+  cursor: pointer;
+  padding: 5px;
+}

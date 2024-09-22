@@ -1,0 +1,46 @@
+.v-middle {
+  background-image: url("../../assets/pexels-frank-cone-140140-3180831.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icons a {
+  transition: ease-in-out 2s linear;
+  padding: 5px;
+  color: wheat;
+}
+.icons a:hover {
+  background-color: rgba(0, 0, 0, 0.459);
+  border-radius: 50%;
+  color: aliceblue !important;
+  cursor: pointer;
+}
+.cv-button {
+  background-color: transparent;
+  border: solid 2px white;
+  border-radius: 10px;
+  color: aliceblue;
+  font-weight: bold;
+}
+.cv-button:hover {
+  background: rgb(238, 174, 202);
+  background: linear-gradient(
+    90deg,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(79, 154, 242, 1) 100%
+  );
+  border-radius: 10px;
+  color: black;
+  font-weight: bold;
+}
