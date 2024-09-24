@@ -4,52 +4,51 @@
   border-bottom-right-radius: 150px;
 }
 .timeline {
-    position: relative;
-    margin: 20px 0;
-    padding: 0 20px;
-    border-left: 3px solid #333;
-  }
-  
-  .timeline-item {
-    position: relative;
-    margin-bottom: 20px;
-    padding-left: 20px;
-  }
-  
-  .timeline-item::before {
-    content: "";
-    position: absolute;
-    left: -10px;
-    top: 0;
-    width: 20px;
-    height: 20px;
-    background-color: #333;
-    border-radius: 50%;
-  }
-  
-  .timeline-date {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 5px;
-  }
-  
-  .timeline-content {
-    background-color: #f9f9f9;
-    padding: 10px 15px;
-    border-radius: 6px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .timeline-content em {
-    font-style: italic;
-    color: #777;
-  }
-  
-  .lead {
-    font-size: 1.1em;
-    font-weight: 500;
-    color: #444;
-    margin-bottom: 10px;
-  }
-  
+  position: relative;
+  margin: 20px 0;
+  padding: 0 20px;
+  border-left: 3px solid #333;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background-color: #333;
+  border-radius: 50%;
+}
+
+.timeline-date {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.timeline-content {
+  background-color: #f9f9f9;
+  padding: 10px 15px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content em {
+  font-style: italic;
+  color: #777;
+}
+
+.lead {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 10px;
+}

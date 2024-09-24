@@ -1,8 +1,11 @@
-*{
-  font-family: 'Cairo', sans-serif;
+* {
+  font-family: "Cairo", sans-serif;
 }
-body{
-  font-family: 'Cairo', sans-serif !important;
-
-  
+body {
+  font-family: "Cairo", sans-serif !important;
+  background-image: url("../src/assets/pexels-frank-cone-140140-3180831.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }

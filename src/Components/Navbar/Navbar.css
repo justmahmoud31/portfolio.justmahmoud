@@ -1,0 +1,16 @@
+nav a {
+  padding: 10px;
+}
+.page-title {
+    font-style: italic;
+}
+#nav-tabs a:hover {
+  background: rgb(238, 174, 202);
+  background: linear-gradient(
+    90deg,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(79, 154, 242, 1) 100%
+  );
+  padding: 10px;
+  border-radius: 10px;
+}

@@ -1,110 +1,104 @@
-import { Dialog, DialogPanel, PopoverGroup } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import "./Navbar.css";
-
+import { Link } from "react-router-dom";
 export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+  };
   return (
-    <header className="bg-transparent">
-      <nav
-        aria-label="Global"
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
-      >
-        <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
-            <h1 className="font-bold text-3xl font-mono">Just Mahmoud;</h1>
-          </a>
-        </div>
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen(true)}
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-          >
-            <span className="sr-only">Open main menu</span>
-            <Bars3Icon aria-hidden="true" className="h-6 w-6" />
-          </button>
-        </div>
-        <PopoverGroup className="hidden lg:flex lg:gap-x-12">
-          <a href="#" className="text-l font-semibold leading-6 text-gray-900">
-            Home
-          </a>
-          <a
-            href="#about"
-            className="text-l font-semibold leading-6 text-gray-900"
-          >
-            About Me
-          </a>
-          <a
-            href="#projects"
-            className="text-l font-semibold leading-6 text-gray-900"
-          >
-            Projects
-          </a>
-          <a
-            href="#contact"
-            className="text-l font-semibold leading-6 text-gray-900"
-          >
-            Contact
-          </a>
-        </PopoverGroup>
-      </nav>
-      <Dialog
-        open={mobileMenuOpen}
-        onClose={setMobileMenuOpen}
-        className="lg:hidden"
-      >
-        <div className="fixed inset-0 z-10" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-          <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <h1 className="font-bold text-3xl font-mono">Just Mahmoud;</h1>
+    <header className="mb-4">
+      <nav className="bg-transparent mb-4 w-full fixed top-0 left-0 z-0">
+        <div className="container mx-auto flex justify-between items-center py-4 px-4 md:px-8">
+          <div className="text-3xl font-bold text-white">
+            <a href="#">
+              <span className="page-title">Just Mahmoud ;</span>
             </a>
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(false)}
-              className="-m-2.5 rounded-md p-2.5 text-gray-700"
+          </div>
+          <button
+            className="text-white focus:outline-none md:hidden"
+            type="button"
+            aria-expanded={isOpen ? "true" : "false"}
+            onClick={handleToggle}
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <span className="sr-only">Close menu</span>
-              <XMarkIcon aria-hidden="true" className="h-6 w-6" />
-            </button>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          </button>
+          <div className="hidden md:flex space-x-6" id="nav-tabs">
+            <Link
+              to={'/'}
+              className="text-white fw-bold text-xl hover:text-yellow-500 transition-colors duration-300"
+            >
+              Home
+            </Link>
+            <Link
+              to={"/about"}
+              className="text-white fw-bold text-xl hover:text-yellow-500 transition-colors duration-300"
+            >
+              About
+            </Link>
+            <Link
+             to={'/projects'}
+              className="text-white fw-bold text-xl hover:text-yellow-500 transition-colors duration-300"
+            >
+              Projects
+            </Link>
+            <a
+              href="#footer-section"
+              className="text-white fw-bold text-xl hover:text-yellow-500 transition-colors duration-300"
+            >
+              Contact
+            </a>
           </div>
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-l font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Home
-                </a>
-                <a
-                  href="#about"
-                  className="-mx-3 block text-l rounded-lg px-3 py-2  font-bold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  About Me
-                </a>
-                <a
-                  href="#projects"
-                  className="-mx-3 block text-l rounded-lg px-3 py-2  font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Projects
-                </a>
-                <a
-                  href="#contact"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-l font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Contact
-                </a>
-              </div>
-            </div>
+          <div
+            className={`${
+              isOpen ? "block" : "hidden"
+            } md:hidden absolute top-16 left-0 w-full bg-transparent bg-opacity-80 text-center`}
+          >
+            <a
+              href="#"
+              className="block text-white fw-bold py-2 hover:text-yellow-500 transition-colors duration-300"
+              onClick={handleToggle}
+            >
+              Home
+            </a>
+            <a
+              href="#about-section"
+              className="block text-white fw-bold py-2 hover:text-yellow-500 transition-colors duration-300"
+              onClick={handleToggle}
+            >
+              About
+            </a>
+            <a
+              href="#services-section"
+              className="block text-white fw-bold py-2 hover:text-yellow-500 transition-colors duration-300"
+              onClick={handleToggle}
+            >
+              Projects
+            </a>
+            <a
+              href="#footer-section"
+              className="block text-white fw-bold py-2 hover:text-yellow-500 transition-colors duration-300"
+              onClick={handleToggle}
+            >
+              Contact
+            </a>
           </div>
-        </DialogPanel>
-      </Dialog>
+        </div>
+      </nav>
     </header>
   );
 }

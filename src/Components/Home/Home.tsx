@@ -4,11 +4,13 @@ import XIcon from "@mui/icons-material/X";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import Navbar from "../Navbar/Navbar";
 import "./Home.css";
 
 export default function Home() {
   return (
     <>
+      <Navbar />
       <div className="v-middle">
         <div className="container">
           <div className="row">

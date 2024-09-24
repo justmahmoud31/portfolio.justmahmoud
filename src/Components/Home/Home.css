@@ -1,9 +1,5 @@
 .v-middle {
-  background-image: url("../../assets/pexels-frank-cone-140140-3180831.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,6 +37,5 @@
     rgba(79, 154, 242, 1) 100%
   );
   border-radius: 10px;
-  color: black;
   font-weight: bold;
 }
