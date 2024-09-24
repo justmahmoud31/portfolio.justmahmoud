@@ -1,20 +1,39 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [navbarBg, setNavbarBg] = useState("bg-transparent");
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > window.innerHeight) {
+        setNavbarBg("backg-white");
+      } else {
+        setNavbarBg("bg-transparent");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="mb-4">
-      <nav className="bg-transparent mb-4 w-full fixed top-0 left-0 z-0">
+    <header>
+      <nav
+        className={`${navbarBg} w-full fixed top-0 left-0 z-50 transition-all duration-300`}
+      >
         <div className="container mx-auto flex justify-between items-center py-4 px-4 md:px-8">
           <div className="text-3xl font-bold text-white">
-            <a href="#">
+            <Link to={"/"}>
               <span className="page-title">Just Mahmoud ;</span>
-            </a>
+            </Link>
           </div>
           <button
             className="text-white focus:outline-none md:hidden"
@@ -39,7 +58,7 @@ export default function Navbar() {
           </button>
           <div className="hidden md:flex space-x-6" id="nav-tabs">
             <Link
-              to={'/'}
+              to={"/"}
               className="text-white fw-bold text-xl hover:text-yellow-500 transition-colors duration-300"
             >
               Home
@@ -51,51 +70,38 @@ export default function Navbar() {
               About
             </Link>
             <Link
-             to={'/projects'}
+              to={"/projects"}
               className="text-white fw-bold text-xl hover:text-yellow-500 transition-colors duration-300"
             >
               Projects
             </Link>
-            <a
-              href="#footer-section"
-              className="text-white fw-bold text-xl hover:text-yellow-500 transition-colors duration-300"
-            >
-              Contact
-            </a>
           </div>
           <div
             className={`${
               isOpen ? "block" : "hidden"
-            } md:hidden absolute top-16 left-0 w-full bg-transparent bg-opacity-80 text-center`}
+            } md:hidden absolute top-16 left-0 w-full bg-[#333] bg-opacity-80 text-center`}
           >
-            <a
-              href="#"
+            <Link
+              to={"/"}
               className="block text-white fw-bold py-2 hover:text-yellow-500 transition-colors duration-300"
               onClick={handleToggle}
             >
               Home
-            </a>
-            <a
-              href="#about-section"
+            </Link>
+            <Link
+              to={"/about"}
               className="block text-white fw-bold py-2 hover:text-yellow-500 transition-colors duration-300"
               onClick={handleToggle}
             >
               About
-            </a>
-            <a
-              href="#services-section"
+            </Link>
+            <Link
+              to={"/projects"}
               className="block text-white fw-bold py-2 hover:text-yellow-500 transition-colors duration-300"
               onClick={handleToggle}
             >
               Projects
-            </a>
-            <a
-              href="#footer-section"
-              className="block text-white fw-bold py-2 hover:text-yellow-500 transition-colors duration-300"
-              onClick={handleToggle}
-            >
-              Contact
-            </a>
+            </Link>
           </div>
         </div>
       </nav>
